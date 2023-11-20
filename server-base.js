@@ -8,3 +8,28 @@ var fs = require('fs');
 const PORT = 8080;
 const app = express();
 
+// Get request for resource /
+app.get("/", function (req, res) {
+    console.log(
+        req.socket.remoteAddress
+        //+ ' ' + req.socket.getPeerCertificate().subject.CN
+        + ' ' + req.method
+        + ' ' + req.url);
+    res.send("<html><body>Secure Hello World with node.js</body></html>");
+});
+
+// configure TLS handshake
+const options = {
+    key: fs.readFileSync('secure-server.pfx'),
+    cert: fs.readFileSync('secure-server.cer'),
+    //ca: fs.readFileSync('<server trustbase PEM (root CA)>'),
+    //requestCert: true,
+    //rejectUnauthorized: true
+};
+
+// Create HTTPS server
+https.createServer(options, app).listen(PORT,
+    function (req, res) {
+        console.log("Server started at port " + PORT);
+    }
+);
