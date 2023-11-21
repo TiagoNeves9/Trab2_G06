@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b6e574c4-1079-4085-b4d3-e4a021c34c5e" name="Changes" comment="Start">
+      <change afterPath="$PROJECT_DIR$/resources/CA1-cer.pem" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SegInf_inv2324_trab2.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/docs/SegInf_inv2324_trab2.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/relying-party-demo.js" beforeDir="false" afterPath="$PROJECT_DIR$/relying-party-demo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-base-w-auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-base-w-auth.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +60,9 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\tiago\OneDrive\Ambiente de Trabalho\5Semestre\SEGINF\Trab2\Trab2_G06" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\tiago\OneDrive\Ambiente de Trabalho\5Semestre\SEGINF\Trab2\Trab2_G06\docs" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -71,7 +75,9 @@
       <workItem from="1700225556852" duration="3036000" />
       <workItem from="1700498940703" duration="998000" />
       <workItem from="1700503419436" duration="1766000" />
-      <workItem from="1700560798538" duration="1101000" />
+      <workItem from="1700560798538" duration="2742000" />
+      <workItem from="1700564430420" duration="283000" />
+      <workItem from="1700564724306" duration="4336000" />
     </task>
     <task id="LOCAL-00001" summary="Start">
       <option name="closed" value="true" />

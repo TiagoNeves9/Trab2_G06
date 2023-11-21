@@ -14,6 +14,10 @@ const CLIENT_SECRET = process.env.CLIENT_SECRET
 // callback URL configured during Client registration in OIDC provider
 const CALLBACK = 'callback'
 
+console.log(CLIENT_ID)
+console.log(CLIENT_SECRET)
+
+
 const app = express()
 app.use(cookieParser());
 
