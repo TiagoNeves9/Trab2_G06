@@ -5,13 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b6e574c4-1079-4085-b4d3-e4a021c34c5e" name="Changes" comment="Start">
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/secure-server.cer" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/secure-server.pfx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SegInf_inv2324_trab2.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/Alice_2.pfx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/CA1-int.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/CA2-int.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/certificates-keys/end-entities/Alice_1.cer" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/certificates-keys/end-entities/Alice_2.cer" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/certificates-keys/end-entities/Bob_1.cer" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/certificates-keys/end-entities/Bob_2.cer" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/certificates-keys/end-entities/Carol_1.cer" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/certificates-keys/end-entities/Carol_2.cer" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/certificates-keys/intermediates/CA1-int.cer" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/certificates-keys/intermediates/CA2-int.cer" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/certificates-keys/pfx/Alice_1.pfx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/certificates-keys/pfx/Alice_2.pfx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/certificates-keys/pfx/Bob_1.pfx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/certificates-keys/pfx/Bob_2.pfx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/certificates-keys/pfx/Carol_1.pfx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/certificates-keys/pfx/Carol_2.pfx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/certificates-keys/trust-anchors/CA1.cer" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/certificates-keys/trust-anchors/CA2.cer" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/secure-server-key.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/secure-server.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server-base-w-auth.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server-base-wo-auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server-base.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-base.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/secure-server.cer" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/secure-server.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/secure-server.pfx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-base.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,9 +52,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2YIujz0MVzi8FbDTtKdxwPff9tR" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -49,7 +72,7 @@
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/Projects",
+    "last_opened_file_path": "C:/Users/tiago/OneDrive/Ambiente de Trabalho/5Semestre/SEGINF/Trab2/Trab2_G06",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -58,6 +81,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\tiago\OneDrive\Ambiente de Trabalho\5Semestre\SEGINF\Trab2\Trab2_G06" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -67,6 +95,8 @@
       <option name="presentableId" value="Default" />
       <updated>1700225555653</updated>
       <workItem from="1700225556852" duration="3036000" />
+      <workItem from="1700498940703" duration="998000" />
+      <workItem from="1700503419436" duration="1766000" />
     </task>
     <task id="LOCAL-00001" summary="Start">
       <option name="closed" value="true" />
