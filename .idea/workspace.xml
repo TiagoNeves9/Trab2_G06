@@ -4,14 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b6e574c4-1079-4085-b4d3-e4a021c34c5e" name="Changes" comment="Start">
-      <change afterPath="$PROJECT_DIR$/server-base-wo-auth-jca.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Trab2_G06.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Trab2_G06.iml" afterDir="false" />
-    </list>
-    <list id="6ca27e9a-cf90-40f8-b2a8-5b4b6e0d3c65" name="Changes by fil" comment="">
-      <change beforePath="$PROJECT_DIR$/server-base-w-auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-base-w-auth.js" afterDir="false" />
-    </list>
+    <list default="true" id="b6e574c4-1079-4085-b4d3-e4a021c34c5e" name="Changes" comment="Start" />
+    <list id="6ca27e9a-cf90-40f8-b2a8-5b4b6e0d3c65" name="Changes by fil" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -84,7 +78,7 @@
       <workItem from="1700825855373" duration="588000" />
       <workItem from="1700831050939" duration="11000" />
       <workItem from="1700831071866" duration="389000" />
-      <workItem from="1700831475688" duration="1779000" />
+      <workItem from="1700831475688" duration="2079000" />
     </task>
     <task id="LOCAL-00001" summary="Start">
       <option name="closed" value="true" />
