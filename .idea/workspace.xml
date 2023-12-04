@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b6e574c4-1079-4085-b4d3-e4a021c34c5e" name="Changes" comment="Start" />
+    <list default="true" id="b6e574c4-1079-4085-b4d3-e4a021c34c5e" name="Changes" comment="Start">
+      <change afterPath="$PROJECT_DIR$/CA.jks" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CA1.cer" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CA2.cer" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/certificates-keys/trust-anchors/CA1.cer" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/certificates-keys/trust-anchors/CA2.cer" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-base-wo-auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-base-wo-auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverBaseWOAuthJCA.class" beforeDir="false" afterPath="$PROJECT_DIR$/serverBaseWOAuthJCA.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverBaseWOAuthJCA.java" beforeDir="false" afterPath="$PROJECT_DIR$/serverBaseWOAuthJCA.java" afterDir="false" />
+    </list>
     <list id="6ca27e9a-cf90-40f8-b2a8-5b4b6e0d3c65" name="Changes by fil" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,6 +89,7 @@
       <workItem from="1700831050939" duration="11000" />
       <workItem from="1700831071866" duration="389000" />
       <workItem from="1700831475688" duration="2079000" />
+      <workItem from="1701250647258" duration="600000" />
     </task>
     <task id="LOCAL-00001" summary="Start">
       <option name="closed" value="true" />
