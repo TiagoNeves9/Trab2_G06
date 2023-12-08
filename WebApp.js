@@ -6,6 +6,7 @@ const FormData = require("form-data");
 const path = require("path");
 const hbs = require("hbs");
 const casbin = require("casbin");
+const JSDOM = require("jsdom");
 
 const PORT = 3001;
 const app = express();
@@ -20,10 +21,12 @@ app.set('view engine', 'hbs');
 hbs.registerPartials(__dirname + '/views/partials');
 
 // System variables where Client credentials are stored
-const CLIENT_ID = "392970294258-7laomhlpe4v98ksmgoid9jn3alsqnpq8.apps.googleusercontent.com";       //TIAGO
-const CLIENT_SECRET = "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";                                        //TIAGO 
+const CLIENT_ID = process.env.CLIENT_ID
+const CLIENT_SECRET = process.env.CLIENT_SECRET 
+const GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID
+const GITHUB_CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET
 
-const API_KEY = "AIzaSyCnv__5hSvkGTI3ArbtRPibHlwaSDsc76k";
+const API_KEY = "AIzaSyDHlPftIbgO7AF8PgjazaGE4hhWtucqevA"; //AIzaSyCl-eDTbeEXUjUmQw89kfob8INT40z9FbI
 
 // Callback URL configured during Client registration in OIDC provider
 const CALLBACK = "callback";
@@ -33,12 +36,12 @@ const CALLBACK = "callback";
 app.get("/", function (req, res) {
     console.log(
         req.socket.remoteAddress
-        //+ ' ' + req.socket.getPeerCertificate().subject.CN
         + ' ' + req.method
         + ' ' + req.url);
     res.send(
         '<a href = /login> Login with your Google Account </a>' +
-        '<br><br> <a href=/allTasks> View your task lists </a>'
+        '<br><br> <a href=/allTasks> View your task lists </a>' +
+        '<br><br> <a href=/githubmilestonesform> Obtain your github milestones </a>'
     );
 });
 
@@ -176,7 +179,8 @@ app.get('/taskList/:id', (req, res) => {
 
 //Obtain the form to add a new task
 app.get('/taskList/add/:id', (req, res) => {
-    res.render('addToTaskList', { l: req.params.id, addToTaskList: true });
+    
+    res.render('repoMilestoneForm', { l: req.params.id, repoMilestoneForm: true });
 });
 
 //Add the new task to the list
@@ -185,7 +189,7 @@ app.post('/taskList/add/:id', (req, res) => {
     if (Object.keys(req.cookies).length != 0) {
         axios.post(
             `https://tasks.googleapis.com/tasks/v1/lists/${req.params.id}/tasks?access_token=${req.cookies.AccessTokenCookie}&key=${API_KEY}`,
-            { Authorization: 'Bearer ' + req.cookies.AccessTokenCookie, title: req.body.title }
+            { Authorization: 'Bearer ' + req.cookies.AccessTokenCookie, title: req.body.MilestoneName }
         )
             .then(
                 res.redirect(`/taskList/${req.params.id}`)
@@ -200,7 +204,30 @@ app.post('/taskList/add/:id', (req, res) => {
     };
 });
 
+//Form to select the owner and repo to obtain the milestones
+app.get('/githubmilestonesform', (req, res) => {
+    res.render('repoMilestoneForm', { owner: req.params.owner, repo : req.params.repo, repoMilestoneForm: true });
+});
 
+async function milestones(req,res){
+    const lists = await axios.get(
+                `https://tasks.googleapis.com/tasks/v1/users/@me/lists?access_token=${req.cookies.AccessTokenCookie}&key=${API_KEY}`,
+                { Authorization: 'Bearer ' + req.cookies.AccessTokenCookie }
+            )
+    const milestones = await axios.get(`https://api.github.com/repos/TiagoNeves9/React-First-Project/milestones`)
+
+    console.log(lists.data.items[0].title)
+    
+    return res.render('milestones', { taskLists: lists.data.items, milestone: milestones.data, title: 'My Milestones', milestones: true });
+}
+
+
+app.get('/githubmilestones', milestones);
+
+//Milestones of a certain repo of a certain owner
+app.get('/githubmilestones/:owner/:repo/:id', (req, res) => {
+
+});
 /*              COOKIES             */
 
 // Protected Resource
@@ -236,6 +263,7 @@ app.get('/setcookies', (req, resp) => {
 });
 
 const crypto = require('crypto');
+const e = require("express");
 const hmac = crypto.createHmac('sha256', 'changeit');
 
 // Set Cookies-HMAC

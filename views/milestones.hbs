@@ -1,0 +1,24 @@
+<head>{{title}}</head>
+<body>
+    {{#each milestone}}
+        <div class="row">
+            <div class="col">
+                <h2>{{this.title}}</h2>
+                <h3>{{this.id}}</h3>
+            </div>
+
+            <div class="col">
+                <h3>Add Milestone to List of Tasks:</h3>
+                {{#each ../taskLists}}
+                    <form method="POST" action="/taskList/add/{{id}}">
+                    <input type="submit" value="{{title}}">
+                    <input type="hidden" name="MilestoneName" value="{{../title}}">
+                    </form>
+                {{/each}}
+            </div>
+
+        </div>
+    </div>
+    {{/each}}
+</body>
+<button onclick="document.location='/'">HOME</button>

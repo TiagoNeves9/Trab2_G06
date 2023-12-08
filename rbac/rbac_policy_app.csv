@@ -1,0 +1,11 @@
+p, free, add_task, read
+
+p, premium, add_task, write
+
+
+g, premium, free
+g, admin, premium
+
+g, miss.filipa.machado@gmail.com, free
+g, iara.liane.costa@gmail.com, premium
+g, tiagonevesx9@gmail.com, admin

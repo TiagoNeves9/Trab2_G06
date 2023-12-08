@@ -1,0 +1,28 @@
+<h1>Repo Milestones</h1>
+<p>Please write in the field below the name of the repo you want to retrieve the milestones and it´s owner and then submit:</p>
+<form id="myForm">
+  <div>
+    <h2 id="id">List ID: {{l}}</h2>
+     
+  <div>
+    Owner:<input type="text" id="owner" required>
+  </div>
+  <br>
+  <div>
+    Repo:<input type="text" id="repo" required>
+  </div>
+  <br>
+  <input type="submit" value="Submit">
+</form>
+
+
+
+<script>
+document.getElementById('myForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var list_id = document.getElementById('id').innerHTML.split(":")[1].trim();
+  var owner = document.getElementById('owner').value;
+  var repo = document.getElementById('repo').value;
+  window.location.href = "/githubmilestones/" + owner + "/" + repo + "/" + list_id;
+});
+</script>

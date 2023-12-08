@@ -1,0 +1,17 @@
+<style>
+  img {
+    width: 30px;
+  }
+</style>
+
+<h1>Task Lists</h1>
+{{#each l}}
+<div class="row">
+  <div class="col">
+    <h3><a href="/taskList/{{this.id}}">{{this.title}}</a></h3>
+    <p>Task List ID: {{this.id}}</p>
+  </div>
+</div>
+<hr>
+{{/each}}
+<button onclick="document.location='/'">HOME</button>
