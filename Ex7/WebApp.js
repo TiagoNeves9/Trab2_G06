@@ -6,6 +6,7 @@ const FormData = require("form-data");
 const path = require("path");
 const hbs = require("hbs");
 const casbin = require("casbin");
+const { Octokit } = require("@octokit/core");
 
 const crypto = require('crypto');
 const e = require("express");
@@ -26,14 +27,16 @@ hbs.registerPartials(__dirname + '/views/partials');
 // System variables where Client credentials are stored
 const CLIENT_ID = process.env.CLIENT_ID
 const CLIENT_SECRET = process.env.CLIENT_SECRET 
-//const GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID
-//const GITHUB_CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET
+const GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID
+const GITHUB_CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET
+
 
 const API_KEY = "AIzaSyCl-eDTbeEXUjUmQw89kfob8INT40z9FbI"; //AIzaSyCl-eDTbeEXUjUmQw89kfob8INT40z9FbI atual
                                                             //AIzaSyDHlPftIbgO7AF8PgjazaGE4hhWtucqevA
 
 // Callback URL configured during Client registration in OIDC provider
 const CALLBACK = "callback";
+const CALLBACKGITHUB = "callbackgithub";
 
 
 // HOMEPAGE. Get request for resource
@@ -59,7 +62,8 @@ app.get("/", async function (req, res) {
             '<div> Your Role: ' + role + '</div>' +
             '<br> <a href = /login> Login with your Google Account </a>' +
             '<br><br> <a href=/allTasks> View your task lists </a>' +
-            '<br><br> <a href=/githubmilestonesform> Obtain your github milestones </a>'
+            '<br><br> <a href=/githubmilestonesform> Obtain your github milestones </a>'+
+            '<br><br> <a href=/githublogin> Github Login </a>'
         );
     }
 });
@@ -85,6 +89,61 @@ app.get('/login', (req, res) => {
 
         // redirect uri used to register RP
         + 'redirect_uri=http://localhost:3001/' + CALLBACK);
+});
+
+app.get('/githublogin', (req, res) => {
+    res.redirect(302,
+        // authorization endpoint
+        'https://github.com/login/oauth/authorize?'
+
+        // client id
+        + 'client_id=' + GITHUB_CLIENT_ID + '&'
+
+        // scope
+        + 'scope=repo&' +
+
+        //callback url
+        + 'redirect_uri=http://localhost:3001/' + CALLBACKGITHUB);
+});
+
+let githubToken 
+
+// CALLBACK GITHUB
+app.get('/' + CALLBACKGITHUB, (req, res) => {
+    console.log('making request to token endpoint github');
+    // content-type: application/x-www-form-urlencoded (URL-Encoded Forms)
+    const form = new FormData();
+    form.append('client_id', GITHUB_CLIENT_ID);
+    form.append('client_secret', GITHUB_CLIENT_SECRET);
+    form.append('code', req.query.code);
+    form.append('redirect_uri', 'http://localhost:3001/' + CALLBACKGITHUB);
+    //console.log(form);
+
+    axios.post(
+        // token endpoint
+        'https://github.com/login/oauth/access_token',
+        form,
+        { headers: form.getHeaders() }
+    ).then(function (response) {
+        githubToken = response.data.split("&")[0].split("=")[1];
+        console.log(githubToken);
+        res.redirect("/");
+    })
+});
+
+app.get('/githubuser', async (req, res) => {
+    const octokit = new Octokit({
+        auth: githubToken
+    });
+
+    const user = await octokit.request('GET /user', {
+        headers: {
+          'X-GitHub-Api-Version': '2022-11-28'
+        }
+      });
+
+    console.log(user);
+    res.redirect('/');  
 });
 
 // CALLBACK
@@ -237,7 +296,19 @@ async function milestones(req,res){
         `https://tasks.googleapis.com/tasks/v1/users/@me/lists?access_token=${req.cookies.AccessTokenCookie}&key=${API_KEY}`,
         { Authorization: 'Bearer ' + req.cookies.AccessTokenCookie }
     )
-    const milestones = await axios.get(`https://api.github.com/repos/${req.params.owner}/${req.params.repo}/milestones`);
+    //const milestones = await axios.get(`https://api.github.com/repos/${req.params.owner}/${req.params.repo}/milestones`);
+
+    const octokit = new Octokit({
+        auth: githubToken
+    });
+    
+    const milestones = await octokit.request('GET /repos/{owner}/{repo}/milestones', {
+        owner: req.params.owner,
+        repo: req.params.repo,
+        headers: {
+          'X-GitHub-Api-Version': '2022-11-28'
+        }
+      })
 
     if (Object.keys(req.cookies).length != 0) {
         const e = await casbin.newEnforcer(__dirname + '/rbac/rbac_model.conf', __dirname + '/rbac/rbac_policy_app.csv');

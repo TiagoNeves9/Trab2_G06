@@ -5,7 +5,7 @@ const express = require("express");
 // Load of files from the local file system
 var fs = require('fs');
 
-const PORT = 8080;
+const PORT = 4433;
 const app = express();
 
 // Get request for resource /
