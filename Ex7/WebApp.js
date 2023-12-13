@@ -31,8 +31,7 @@ const GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID
 const GITHUB_CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET
 
 
-const API_KEY = "AIzaSyCl-eDTbeEXUjUmQw89kfob8INT40z9FbI"; //AIzaSyCl-eDTbeEXUjUmQw89kfob8INT40z9FbI atual
-                                                            //AIzaSyDHlPftIbgO7AF8PgjazaGE4hhWtucqevA
+const API_KEY = "AIzaSyCl-eDTbeEXUjUmQw89kfob8INT40z9FbI";
 
 // Callback URL configured during Client registration in OIDC provider
 const CALLBACK = "callback";
@@ -79,10 +78,6 @@ app.get('/login', (req, res) => {
 
         // OpenID scope "openid email"
         + 'scope=openid%20email%20https://www.googleapis.com/auth/tasks&'
-
-        // parameter state is used to check if the user-agent requesting login is the same making the request to the callback URL
-        // more info at https://www.rfc-editor.org/rfc/rfc6749#section-10.12
-        //+ 'state=value-based-on-user-session&'
 
         // responde_type for "authorization code grant"
         + 'response_type=code&'
